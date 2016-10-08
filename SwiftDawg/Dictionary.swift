@@ -46,4 +46,16 @@ public class DawgDictionary {
     }
     
     public func contains(labels:[UCharType]) -> Bool { return follow(labels:labels, index:root) }
+    
+    // aka load from data
+    public convenience init(data: Data) {
+        self.init(dictionaryUnits: data.withUnsafeBytes {
+            Array(UnsafeBufferPointer<DictionaryUnit>(start: $0, count: data.count / MemoryLayout<BaseType>.size))
+        })
+    }
+    
+    // aka save to fata
+    public var data:Data {
+        return Data(buffer: UnsafeBufferPointer(start: &units, count: units.count))
+    }
 }

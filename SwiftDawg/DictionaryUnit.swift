@@ -38,6 +38,5 @@ public struct DictionaryUnit {
     public var label:UCharType { return UCharType(_base & (DictionaryUnit.isLeafBit | 0xFF)) }
     public var offset:BaseType { return (_base >> 10) << ((_base & DictionaryUnit.extensionBit) >> 6) }
     
-    private var _base:BaseType = 0
-    
+    public var _base:BaseType = 0
 }
