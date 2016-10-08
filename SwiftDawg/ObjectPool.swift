@@ -24,8 +24,6 @@ public class ObjectPool <ObjectType:HasInit>
         _blockSize = 1 << 10;
     }
     
-    public var size:SizeType { return _size; }
-    
     public func allocate() -> SizeType {
         if(_size == _blockSize * _blocks.count) {
             _blocks.append([ObjectType](repeating: ObjectType(), count: _blockSize))
@@ -45,6 +43,6 @@ public class ObjectPool <ObjectType:HasInit>
     }
     
     private var _blocks = [ObjectArray]();
-    private var _size:SizeType = 0
+    public private(set) var _size:SizeType = 0
     private var _blockSize:SizeType
 }

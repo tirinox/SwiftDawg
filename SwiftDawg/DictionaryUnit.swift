@@ -35,7 +35,7 @@ public struct DictionaryUnit {
     
     public var hasLeaf:Bool { return _base & DictionaryUnit.hasLeafBit != 0 ? true : false }
     public var value:ValueType { return ValueType(_base & ~DictionaryUnit.isLeafBit) }
-    public var label:BaseType { return _base & (DictionaryUnit.isLeafBit | 0xFF) }
+    public var label:UCharType { return UCharType(_base & (DictionaryUnit.isLeafBit | 0xFF)) }
     public var offset:BaseType { return (_base >> 10) << ((_base & DictionaryUnit.extensionBit) >> 6) }
     
     private var _base:BaseType = 0
