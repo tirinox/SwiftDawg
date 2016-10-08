@@ -10,6 +10,10 @@
 		5BE2DA321DA9749D0022B65E /* SwiftDawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE2DA281DA9749D0022B65E /* SwiftDawg.framework */; };
 		5BE2DA371DA9749D0022B65E /* SwiftDawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA361DA9749D0022B65E /* SwiftDawgTests.swift */; };
 		5BE2DA391DA9749D0022B65E /* SwiftDawg.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE2DA2B1DA9749D0022B65E /* SwiftDawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE2DA431DA974C20022B65E /* SwiftDawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA421DA974C20022B65E /* SwiftDawg.swift */; };
+		5BE2DA451DA975330022B65E /* BaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA441DA975330022B65E /* BaseType.swift */; };
+		5BE2DA471DA976030022B65E /* BaseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA461DA976030022B65E /* BaseUnit.swift */; };
+		5BE2DA491DA977720022B65E /* ObjectPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA481DA977720022B65E /* ObjectPool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		5BE2DA311DA9749D0022B65E /* SwiftDawgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDawgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE2DA361DA9749D0022B65E /* SwiftDawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDawgTests.swift; sourceTree = "<group>"; };
 		5BE2DA381DA9749D0022B65E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BE2DA421DA974C20022B65E /* SwiftDawg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDawg.swift; sourceTree = "<group>"; };
+		5BE2DA441DA975330022B65E /* BaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseType.swift; sourceTree = "<group>"; };
+		5BE2DA461DA976030022B65E /* BaseUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUnit.swift; sourceTree = "<group>"; };
+		5BE2DA481DA977720022B65E /* ObjectPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectPool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,10 @@
 			children = (
 				5BE2DA2B1DA9749D0022B65E /* SwiftDawg.h */,
 				5BE2DA2C1DA9749D0022B65E /* Info.plist */,
+				5BE2DA421DA974C20022B65E /* SwiftDawg.swift */,
+				5BE2DA441DA975330022B65E /* BaseType.swift */,
+				5BE2DA461DA976030022B65E /* BaseUnit.swift */,
+				5BE2DA481DA977720022B65E /* ObjectPool.swift */,
 			);
 			path = SwiftDawg;
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 					5BE2DA271DA9749D0022B65E = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 98NXLA2TVT;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					5BE2DA301DA9749D0022B65E = {
@@ -198,6 +211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE2DA491DA977720022B65E /* ObjectPool.swift in Sources */,
+				5BE2DA451DA975330022B65E /* BaseType.swift in Sources */,
+				5BE2DA471DA976030022B65E /* BaseUnit.swift in Sources */,
+				5BE2DA431DA974C20022B65E /* SwiftDawg.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +339,7 @@
 		5BE2DA3D1DA9749D0022B65E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 98NXLA2TVT;
@@ -334,6 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tirinox.SwiftDawg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +360,7 @@
 		5BE2DA3E1DA9749D0022B65E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 98NXLA2TVT;
@@ -360,6 +380,7 @@
 		5BE2DA401DA9749D0022B65E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 98NXLA2TVT;
 				INFOPLIST_FILE = SwiftDawgTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +393,7 @@
 		5BE2DA411DA9749D0022B65E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 98NXLA2TVT;
 				INFOPLIST_FILE = SwiftDawgTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
