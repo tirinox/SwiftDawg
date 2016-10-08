@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class BaseUnit {
+public struct BaseUnit {
     
     public func base() -> BaseType { return _base; }
     public func child() -> BaseType { return _base >> 2; }

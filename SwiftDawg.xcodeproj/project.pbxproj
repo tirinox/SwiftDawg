@@ -14,6 +14,7 @@
 		5BE2DA451DA975330022B65E /* BaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA441DA975330022B65E /* BaseType.swift */; };
 		5BE2DA471DA976030022B65E /* BaseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA461DA976030022B65E /* BaseUnit.swift */; };
 		5BE2DA491DA977720022B65E /* ObjectPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA481DA977720022B65E /* ObjectPool.swift */; };
+		5BE2DA4B1DA97DB20022B65E /* DictionaryUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DA4A1DA97DB20022B65E /* DictionaryUnit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		5BE2DA441DA975330022B65E /* BaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseType.swift; sourceTree = "<group>"; };
 		5BE2DA461DA976030022B65E /* BaseUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUnit.swift; sourceTree = "<group>"; };
 		5BE2DA481DA977720022B65E /* ObjectPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectPool.swift; sourceTree = "<group>"; };
+		5BE2DA4A1DA97DB20022B65E /* DictionaryUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryUnit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				5BE2DA441DA975330022B65E /* BaseType.swift */,
 				5BE2DA461DA976030022B65E /* BaseUnit.swift */,
 				5BE2DA481DA977720022B65E /* ObjectPool.swift */,
+				5BE2DA4A1DA97DB20022B65E /* DictionaryUnit.swift */,
 			);
 			path = SwiftDawg;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				5BE2DA491DA977720022B65E /* ObjectPool.swift in Sources */,
 				5BE2DA451DA975330022B65E /* BaseType.swift in Sources */,
+				5BE2DA4B1DA97DB20022B65E /* DictionaryUnit.swift in Sources */,
 				5BE2DA471DA976030022B65E /* BaseUnit.swift in Sources */,
 				5BE2DA431DA974C20022B65E /* SwiftDawg.swift in Sources */,
 			);
