@@ -20,6 +20,11 @@ extension Data {
     
         return value
     }
+    
+    public init<T>(withValue: T) {
+        var v = withValue
+        self.init(buffer: UnsafeBufferPointer(start: &v, count: 1))
+    }
 }
 
 extension Character {

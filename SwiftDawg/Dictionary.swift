@@ -73,14 +73,18 @@ extension DawgDictionary {
         self.init(data: onlyUnits)
     }
     
-    // aka load from data
+    public func save(toFileName: String) throws {
+        var sizeData = Data(withValue: BaseType(units.count))
+        sizeData.append(self.data)
+        try sizeData.write(to: URL(fileURLWithPath: toFileName))
+    }
+    
     public convenience init(data: Data) {
         self.init(dictionaryUnits: data.withUnsafeBytes {
             Array(UnsafeBufferPointer<DictionaryUnit>(start: $0, count: data.count / MemoryLayout<BaseType>.size))
         })
     }
     
-    // aka save to fata
     public var data:Data {
         return Data(buffer: UnsafeBufferPointer(start: units, count: units.count))
     }
