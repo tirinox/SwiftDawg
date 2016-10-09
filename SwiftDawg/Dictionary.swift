@@ -74,9 +74,9 @@ extension DawgDictionary {
     }
     
     public func save(toFileName: String) throws {
-        var sizeData = Data(withValue: BaseType(units.count))
-        sizeData.append(self.data)
-        try sizeData.write(to: URL(fileURLWithPath: toFileName))
+        var d = Data(withValue: BaseType(units.count))
+        d.append(self.data)
+        try d.write(to: URL(fileURLWithPath: toFileName))
     }
     
     public convenience init(data: Data) {
