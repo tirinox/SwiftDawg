@@ -13,3 +13,4 @@ public typealias UCharType = UInt8
 public typealias ValueType = Int
 public typealias BaseType = UInt
 public typealias SizeType = Int
+

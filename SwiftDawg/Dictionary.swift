@@ -11,7 +11,6 @@ import Foundation
 public class DawgDictionary {
     
     public private(set) var units = [DictionaryUnit]()
-    public private(set) var size:SizeType = 0
     public let root:BaseType = 0
     
     public func hasValue(index:BaseType) -> Bool { return units[Int(index)].hasLeaf }
@@ -19,7 +18,6 @@ public class DawgDictionary {
 
     public init(dictionaryUnits: [DictionaryUnit]) {
         units = dictionaryUnits
-        size = units.count
     }
     
     public func follow(label:UCharType, index:BaseType) -> (Bool, BaseType) {
@@ -47,6 +45,32 @@ public class DawgDictionary {
     
     public func contains(labels:[UCharType]) -> Bool { return follow(labels:labels, index:root) }
     
+
+}
+
+enum DawgDictionaryError: Error {
+    case NoData
+    case FileSizeMismatch
+}
+
+extension DawgDictionary {
+    
+    public convenience init(fileName: String) throws {
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: fileName)) else {
+            throw DawgDictionaryError.NoData
+        }
+        
+        let size:SizeType = data.getValueAt(position: 0)
+        let sizeofSizeType = MemoryLayout<SizeType>.size
+        let restofSize = data.count - sizeofSizeType
+        
+        if size != restofSize {
+            throw DawgDictionaryError.FileSizeMismatch
+        }
+        let onlyUnits = data.subdata(in: Range(uncheckedBounds: (lower: sizeofSizeType, upper: restofSize)))
+        self.init(data: onlyUnits)
+    }
+    
     // aka load from data
     public convenience init(data: Data) {
         self.init(dictionaryUnits: data.withUnsafeBytes {
@@ -56,6 +80,6 @@ public class DawgDictionary {
     
     // aka save to fata
     public var data:Data {
-        return Data(buffer: UnsafeBufferPointer(start: &units, count: units.count))
+        return Data(buffer: UnsafeBufferPointer(start: units, count: units.count))
     }
 }
