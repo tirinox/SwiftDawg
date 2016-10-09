@@ -21,3 +21,14 @@ extension Data {
         return value
     }
 }
+
+extension Character {
+    var asciiValue: UInt32? {
+        return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
+    }
+}
+
+public func englishStringToCharArray(string: String) -> [UCharType] {
+    let aCode = Int(Character("a").asciiValue!)
+    return string.lowercased().unicodeScalars.filter{$0.isASCII}.map {UCharType(Int($0.value) - aCode + 1)}
+}

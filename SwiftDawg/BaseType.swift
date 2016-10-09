@@ -10,7 +10,7 @@ import Foundation
 
 public typealias CharType = Int8
 public typealias UCharType = UInt8
-public typealias ValueType = Int
-public typealias BaseType = UInt
+public typealias ValueType = Int32
+public typealias BaseType = UInt32
 public typealias SizeType = Int
 

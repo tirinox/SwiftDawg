@@ -31,21 +31,22 @@ public class DawgDictionary {
         }
     }
     
-    public func follow(labels:[UCharType], index:BaseType) -> Bool {
+    public func follow(labels:[UCharType], index:BaseType) -> (Bool, BaseType) {
         var currentIndex = index
         var success:Bool
         for label in labels {
             (success, currentIndex) = follow(label: label, index:currentIndex)
             if !success {
-                return false
+                return (false, 0)
             }
         }
-        return true
+        return (true, currentIndex)
     }
     
-    public func contains(labels:[UCharType]) -> Bool { return follow(labels:labels, index:root) }
-    
-
+    public func contains(labels:[UCharType]) -> Bool {
+        let (success, index) = follow(labels:labels, index:root)
+        return success && hasValue(index: index)
+    }
 }
 
 enum DawgDictionaryError: Error {
@@ -59,15 +60,16 @@ extension DawgDictionary {
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: fileName)) else {
             throw DawgDictionaryError.NoData
         }
+    
+        let size:BaseType = data.getValueAt(position: 0)
+        let sizeofBaseType = MemoryLayout<BaseType>.size
+        let restofSize = data.count - sizeofBaseType
+        let begin = SizeType(sizeofBaseType)
         
-        let size:SizeType = data.getValueAt(position: 0)
-        let sizeofSizeType = MemoryLayout<SizeType>.size
-        let restofSize = data.count - sizeofSizeType
-        
-        if size != restofSize {
+        if SizeType(size) * sizeofBaseType != restofSize {
             throw DawgDictionaryError.FileSizeMismatch
         }
-        let onlyUnits = data.subdata(in: Range(uncheckedBounds: (lower: sizeofSizeType, upper: restofSize)))
+        let onlyUnits = data.subdata(in: Range(uncheckedBounds: (lower: begin, upper: data.count)))
         self.init(data: onlyUnits)
     }
     
