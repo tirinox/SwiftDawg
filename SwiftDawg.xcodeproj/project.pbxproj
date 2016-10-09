@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1E72191DAADF2A009224D1 /* DictionaryExtraUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E72181DAADF2A009224D1 /* DictionaryExtraUnit.swift */; };
 		5BDACE2B1DAA4D7F00DA30CB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDACE2A1DAA4D7F00DA30CB /* Util.swift */; };
 		5BDACE2D1DAA53B800DA30CB /* dic-dawg-en.bin in Resources */ = {isa = PBXBuildFile; fileRef = 5BDACE2C1DAA53B800DA30CB /* dic-dawg-en.bin */; };
 		5BE2DA321DA9749D0022B65E /* SwiftDawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE2DA281DA9749D0022B65E /* SwiftDawg.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B1E72181DAADF2A009224D1 /* DictionaryExtraUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtraUnit.swift; sourceTree = "<group>"; };
 		5BDACE2A1DAA4D7F00DA30CB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		5BDACE2C1DAA53B800DA30CB /* dic-dawg-en.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "dic-dawg-en.bin"; sourceTree = "<group>"; };
 		5BE2DA281DA9749D0022B65E /* SwiftDawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				5BE2DA4A1DA97DB20022B65E /* DictionaryUnit.swift */,
 				5BE2DA4C1DA982000022B65E /* Dictionary.swift */,
 				5BDACE2A1DAA4D7F00DA30CB /* Util.swift */,
+				5B1E72181DAADF2A009224D1 /* DictionaryExtraUnit.swift */,
 			);
 			path = SwiftDawg;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				5BE2DA471DA976030022B65E /* BaseUnit.swift in Sources */,
 				5BDACE2B1DAA4D7F00DA30CB /* Util.swift in Sources */,
 				5BE2DA431DA974C20022B65E /* SwiftDawg.swift in Sources */,
+				5B1E72191DAADF2A009224D1 /* DictionaryExtraUnit.swift in Sources */,
 				5BE2DA4D1DA982000022B65E /* Dictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
