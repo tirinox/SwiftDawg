@@ -17,3 +17,7 @@ public typealias SizeType = Int
 extension UCharType : HasInit {
     public static func zero() -> UCharType { return 0 }
 }
+
+extension BaseType : HasInit {
+    public static func zero() -> BaseType { return 0 }
+}

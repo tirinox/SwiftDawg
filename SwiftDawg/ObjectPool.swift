@@ -26,12 +26,12 @@ public class ObjectPool <ObjectType:HasInit>
     
     @discardableResult
     public func allocate() -> SizeType {
-        if(_size == _blockSize * _blocks.count) {
+        if(size == _blockSize * _blocks.count) {
             _blocks.append([ObjectType](repeating: ObjectType.zero(), count: _blockSize))
         }
-        let size = _size
-        _size += 1
-        return size
+        let oldSize = size
+        size += 1
+        return oldSize
     }
     
     public subscript(index: SizeType) -> ObjectType {
@@ -44,11 +44,11 @@ public class ObjectPool <ObjectType:HasInit>
     }
     
     public func clear() {
-        _size = 0
+        size = 0
         _blocks.removeAll()
     }
     
     private var _blocks = [ObjectArray]();
-    public private(set) var _size:SizeType = 0
+    public private(set) var size:SizeType = 0
     private var _blockSize:SizeType
 }

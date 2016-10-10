@@ -29,7 +29,7 @@ public class BitPool {
     @discardableResult
     public func allocate() -> SizeType {
         let poolIndex = pool(index: _size)
-        if poolIndex == _pool._size {
+        if poolIndex == _pool.size {
             _pool.allocate()
             _pool[poolIndex] = 0
         }

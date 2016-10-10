@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct BaseUnit {
+public struct BaseUnit : HasInit {
     
-    public func base() -> BaseType { return _base; }
-    public func child() -> BaseType { return _base >> 2; }
-    public func has_subling() -> Bool { return (_base & 1) != 0 ? true : false; }
-    public func value() -> ValueType { return (ValueType)(_base >> 1); }
-    public func is_state() -> Bool { return (_base & 2) != 0 ? true : false; }
+    public var base:BaseType = 0;
+    public var child: BaseType { return base >> 2; }
+    public var hasSibling: Bool { return (base & 1) != 0 ? true : false; }
+    public var value: ValueType { return (ValueType)(base >> 1); }
+    public var isState: Bool { return (base & 2) != 0 ? true : false; }
     
-    private var _base:BaseType = 0;
+    public static func zero() -> BaseUnit { return BaseUnit() }
 }
