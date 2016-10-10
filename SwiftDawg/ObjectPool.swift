@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol HasInit {
-    init();
+    static func zero() -> Self
 }
 
 public class ObjectPool <ObjectType:HasInit>
@@ -24,9 +24,10 @@ public class ObjectPool <ObjectType:HasInit>
         _blockSize = 1 << 10;
     }
     
+    @discardableResult
     public func allocate() -> SizeType {
         if(_size == _blockSize * _blocks.count) {
-            _blocks.append([ObjectType](repeating: ObjectType(), count: _blockSize))
+            _blocks.append([ObjectType](repeating: ObjectType.zero(), count: _blockSize))
         }
         let size = _size
         _size += 1
@@ -40,6 +41,11 @@ public class ObjectPool <ObjectType:HasInit>
         set(newValue) {
             _blocks[index / _blockSize][index % _blockSize] = newValue
         }
+    }
+    
+    public func clear() {
+        _size = 0
+        _blocks.removeAll()
     }
     
     private var _blocks = [ObjectArray]();
