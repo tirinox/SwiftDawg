@@ -32,6 +32,23 @@ class DawgBuilder {
     var _numOfMergedTransitions:SizeType = 0
     var _numOfMergingStates:SizeType = 0
     
+    func hashTransition(index: BaseType) -> BaseType {
+        var hashValue:BaseType = 0
+        var i = index
+        while i != 0 {
+            let base = _basePool[SizeType(i)].base
+            let label = _labelPool[SizeType(i)]
+            hashValue ^= hash(key: (BaseType(label) << 24) ^ base)
+            
+            if _basePool[SizeType(i)].hasSibling == false {
+                break
+            }
+            
+            i += 1
+        }
+        return hashValue
+    }
+    
     func hashUnit(index: BaseType) -> BaseType {
         var hashValue:BaseType = 0
         var i = index
