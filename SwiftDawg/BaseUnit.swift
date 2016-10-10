@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BaseUnit : HasInit {
+public struct BaseUnit : HasZero {
     
     public var base:BaseType = 0;
     public var child: BaseType { return base >> 2; }

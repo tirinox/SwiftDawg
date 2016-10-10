@@ -14,10 +14,10 @@ public typealias ValueType = Int32
 public typealias BaseType = UInt32
 public typealias SizeType = Int
 
-extension UCharType : HasInit {
+extension UCharType : HasZero {
     public static func zero() -> UCharType { return 0 }
 }
 
-extension BaseType : HasInit {
+extension BaseType : HasZero {
     public static func zero() -> BaseType { return 0 }
 }

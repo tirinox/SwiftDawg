@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DawgUnit {
+public struct DawgUnit : HasZero {
     
     public mutating func clear() {
         child = 0
@@ -32,4 +32,6 @@ public struct DawgUnit {
     public var label:BaseType = 0
     public var isState:Bool = false
     public var hasSibling:Bool = false
+    
+    public static func zero() -> DawgUnit { return DawgUnit() }
 }

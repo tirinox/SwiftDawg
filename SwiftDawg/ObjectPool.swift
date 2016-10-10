@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol HasInit {
+public protocol HasZero {
     static func zero() -> Self
 }
 
-public class ObjectPool <ObjectType:HasInit>
+public class ObjectPool <ObjectType:HasZero>
 {
     public typealias ObjectArray = [ObjectType];
     
