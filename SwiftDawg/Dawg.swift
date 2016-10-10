@@ -38,5 +38,4 @@ public class Dawg {
     public var numOfMergedTransitions =  0
     public var numOfMergedStates = 0
     public var numOfMergingStates = 0
-    
 }

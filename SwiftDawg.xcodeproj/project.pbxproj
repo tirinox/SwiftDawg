@@ -10,6 +10,7 @@
 		5B1E72191DAADF2A009224D1 /* DictionaryExtraUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E72181DAADF2A009224D1 /* DictionaryExtraUnit.swift */; };
 		5BD595531DAB8B5000260176 /* BitPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD595521DAB8B5000260176 /* BitPool.swift */; };
 		5BD595551DAB8F8900260176 /* Dawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD595541DAB8F8900260176 /* Dawg.swift */; };
+		5BD595571DABA65A00260176 /* DawgUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD595561DABA65A00260176 /* DawgUnit.swift */; };
 		5BDACE2B1DAA4D7F00DA30CB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDACE2A1DAA4D7F00DA30CB /* Util.swift */; };
 		5BDACE2D1DAA53B800DA30CB /* dic-dawg-en.bin in Resources */ = {isa = PBXBuildFile; fileRef = 5BDACE2C1DAA53B800DA30CB /* dic-dawg-en.bin */; };
 		5BE2DA321DA9749D0022B65E /* SwiftDawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE2DA281DA9749D0022B65E /* SwiftDawg.framework */; };
@@ -37,6 +38,7 @@
 		5B1E72181DAADF2A009224D1 /* DictionaryExtraUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtraUnit.swift; sourceTree = "<group>"; };
 		5BD595521DAB8B5000260176 /* BitPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitPool.swift; sourceTree = "<group>"; };
 		5BD595541DAB8F8900260176 /* Dawg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dawg.swift; sourceTree = "<group>"; };
+		5BD595561DABA65A00260176 /* DawgUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DawgUnit.swift; sourceTree = "<group>"; };
 		5BDACE2A1DAA4D7F00DA30CB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		5BDACE2C1DAA53B800DA30CB /* dic-dawg-en.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "dic-dawg-en.bin"; sourceTree = "<group>"; };
 		5BE2DA281DA9749D0022B65E /* SwiftDawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				5B1E72181DAADF2A009224D1 /* DictionaryExtraUnit.swift */,
 				5BD595521DAB8B5000260176 /* BitPool.swift */,
 				5BD595541DAB8F8900260176 /* Dawg.swift */,
+				5BD595561DABA65A00260176 /* DawgUnit.swift */,
 			);
 			path = SwiftDawg;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				5BE2DA491DA977720022B65E /* ObjectPool.swift in Sources */,
 				5BE2DA451DA975330022B65E /* BaseType.swift in Sources */,
+				5BD595571DABA65A00260176 /* DawgUnit.swift in Sources */,
 				5BE2DA4B1DA97DB20022B65E /* DictionaryUnit.swift in Sources */,
 				5BD595531DAB8B5000260176 /* BitPool.swift in Sources */,
 				5BE2DA471DA976030022B65E /* BaseUnit.swift in Sources */,
