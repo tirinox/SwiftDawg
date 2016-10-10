@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DictionaryUnit {
+public struct DictionaryUnit: Equatable {
     
     static let offsetMax: BaseType = 1 << 21
     static let isLeafBit: BaseType = 1 << 31
@@ -39,4 +39,18 @@ public struct DictionaryUnit {
     public var offset:BaseType { return (_base >> 10) << ((_base & DictionaryUnit.extensionBit) >> 6) }
     
     public var _base:BaseType = 0
+}
+
+public func == (lhs: DictionaryUnit, rhs: DictionaryUnit) -> Bool {
+    return lhs._base == rhs._base
+}
+
+public func != (lhs: DictionaryUnit, rhs: DictionaryUnit) -> Bool {
+    return lhs._base != rhs._base
+}
+
+public extension DictionaryUnit {
+    func isEqualTo(other: DictionaryUnit) -> Bool {
+        return _base == other._base
+    }
 }

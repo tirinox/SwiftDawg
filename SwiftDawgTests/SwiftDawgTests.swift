@@ -21,7 +21,7 @@ class SwiftDawgTests: XCTestCase {
         super.setUp()
         
         do {
-            dic = try DawgDictionary(fileName: Bundle(for: SwiftDawgTests.self).path(forResource: "dic-dawg-en", ofType: "bin")!)
+            dic = try DawgDictionary(url: Bundle(for: SwiftDawgTests.self).url(forResource: "dic-dawg-en", withExtension: "bin")!)
         } catch {
             print("Error info: \(error)")
         }
@@ -48,6 +48,28 @@ class SwiftDawgTests: XCTestCase {
     
     func testLoaded() {
         XCTAssert(dic != nil)
+    }
+    
+    func testSaveDictionary() {
+        if dic != nil {
+            
+            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            if let directory:URL = urls.first {
+                let fileURL = directory.appendingPathComponent("test.bin")
+                let fileName = fileURL.absoluteString
+                if FileManager.default.fileExists(atPath: fileName) {
+                    try? FileManager.default.removeItem(at: fileURL)
+                }
+                
+                try! dic?.save(to: fileURL)
+                
+                let saved = try? DawgDictionary(url: fileURL)
+                XCTAssert(saved != nil)
+               
+                XCTAssert(saved!.units == dic!.units)
+            }
+            
+        }
     }
     
     func testWords() {

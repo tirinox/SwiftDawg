@@ -56,8 +56,8 @@ enum DawgDictionaryError: Error {
 
 extension DawgDictionary {
     
-    public convenience init(fileName: String) throws {
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: fileName)) else {
+    public convenience init(url: URL) throws {
+        guard let data = try? Data(contentsOf: url) else {
             throw DawgDictionaryError.NoData
         }
     
@@ -73,10 +73,10 @@ extension DawgDictionary {
         self.init(data: onlyUnits)
     }
     
-    public func save(toFileName: String) throws {
+    public func save(to: URL) throws {
         var d = Data(withValue: BaseType(units.count))
         d.append(self.data)
-        try d.write(to: URL(fileURLWithPath: toFileName))
+        try d.write(to: to)
     }
     
     public convenience init(data: Data) {
