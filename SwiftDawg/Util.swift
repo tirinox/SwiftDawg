@@ -43,7 +43,11 @@ struct Stack<Element> {
     var items = [Element]()
     
     mutating func push(_ item: Element) { items.append(item) }
+    
+    @discardableResult
     mutating func pop() -> Element { return items.removeLast() }
+    
+    var top: Element? { return items.last }
     var empty:Bool { return items.count == 0 }
 }
 
