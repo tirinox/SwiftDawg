@@ -240,7 +240,6 @@ class DawgBuilder {
         var ti = transitionIndex
         var i = _unitPool[SizeType(unitIndex)].sibling
         while i != 0 {
-            
             if _basePool[SizeType(ti)].hasSibling == false {
                 return false
             }
@@ -255,7 +254,6 @@ class DawgBuilder {
         
         i = unitIndex
         while i != 0 {
-            
             if _unitPool[SizeType(i)].base != _basePool[SizeType(ti)].base ||
                 UCharType(_unitPool[SizeType(i)].label) != _labelPool[SizeType(ti)] {
                 return false
