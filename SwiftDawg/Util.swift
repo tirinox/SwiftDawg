@@ -49,5 +49,7 @@ struct Stack<Element> {
     
     var top: Element? { return items.last }
     var empty:Bool { return items.count == 0 }
+    
+    mutating func clear() { items.removeAll() }
 }
 

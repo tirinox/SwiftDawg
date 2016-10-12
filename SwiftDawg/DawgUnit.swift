@@ -18,7 +18,11 @@ public struct DawgUnit : HasZero {
         hasSibling = false
     }
     
-    public var value:ValueType { return ValueType(child) }
+    public var value:ValueType {
+        get { return ValueType(child) }
+        set(val) { child = BaseType(val) }
+    }
+    
     public var base:BaseType {
         if label == 0 {
             return (child << 1) | (hasSibling ? 1 : 0)
@@ -29,7 +33,7 @@ public struct DawgUnit : HasZero {
     
     public var child:BaseType = 0
     public var sibling:BaseType = 0
-    public var label:BaseType = 0
+    public var label:UCharType = 0
     public var isState:Bool = false
     public var hasSibling:Bool = false
     

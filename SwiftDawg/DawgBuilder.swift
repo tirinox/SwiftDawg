@@ -13,13 +13,10 @@ class DawgBuilder {
     static let defaultInitialHashTableSize:SizeType = 1 << 8
     let _initialHashTableSize:SizeType
     
-    public init(initialHashTableSize: SizeType) {
+    public init(initialHashTableSize: SizeType = DawgBuilder.defaultInitialHashTableSize) {
         _initialHashTableSize = initialHashTableSize
     }
     
-    public convenience init() {
-        self.init(initialHashTableSize: DawgBuilder.defaultInitialHashTableSize)
-    }
     
     var _basePool = ObjectPool<BaseUnit>()
     var _labelPool = ObjectPool<UCharType>()
@@ -28,16 +25,127 @@ class DawgBuilder {
     var _hashTable:[BaseType] = []
     var _unfixedUnits = Stack<BaseType>()
     var _unusedUnits = Stack<BaseType>()
-    var _numOfStates:SizeType = 0
-    var _numOfMergedTransitions:SizeType = 0
-    var _numOfMergingStates:SizeType = 0
+    public private(set) var numOfStates:SizeType = 1
+    public private(set) var numOfMergedTransitions:SizeType = 0
+    public private(set) var numOfMergingStates:SizeType = 0
     
-    // warning: check it with a fresh mind
+    public var numOfTransitions: SizeType {
+        return _basePool.size - 1
+    }
+    
+    public var numOfMergedStates: SizeType {
+        return numOfTransitions + numOfMergedTransitions + 1 - numOfStates
+    }
+    
+    public func clear() {
+        _basePool.clear()
+        _labelPool.clear()
+        _flagPool.clear()
+        _unitPool.clear()
+        _hashTable = []
+        _unfixedUnits.clear()
+        _unusedUnits.clear()
+        numOfStates = 1
+        numOfMergedTransitions = 0
+        numOfMergingStates = 0
+    }
+    
+    public func insert(key: [UCharType], value: ValueType) -> Bool {
+        if key.count == 0 || value < 0 {
+            return false
+        }
+        for item in key {
+            if item == 0 {
+                return false
+            }
+        }
+        return insertKey(key: key, value: value)
+    }
+    
+    public func finish() -> Dawg {
+        let dawg = Dawg(basePool: _basePool, labelPool: _labelPool, flagPool: _flagPool)
+        
+        if(_hashTable.isEmpty) {
+            initialize()
+        }
+        
+        fixUnits(index: 0)
+        _basePool[0].base = _unitPool[0].base
+        _labelPool[0] = _unitPool[0].label
+        
+        dawg.numOfStates = numOfStates
+        dawg.numOfMergedTransitions = numOfMergedTransitions
+        dawg.numOfMergedStates = numOfMergedStates
+        dawg.numOfMergingStates = numOfMergingStates
+        
+        return dawg
+    }
+    
+    func initialize() {
+        _hashTable = [BaseType](repeating: 0, count: _initialHashTableSize)
+        allocateUnit()
+        allocateTransition()
+        _unitPool[0].label = 0xFF
+        _unfixedUnits.push(0)
+    }
+    
+    func insertKey(key: [UCharType], value: ValueType) -> Bool {
+        if _hashTable.isEmpty {
+            initialize()
+        }
+        
+        var index:BaseType = 0
+        var keyPos:SizeType = 0
+        let keyLen = key.count
+        
+        while keyPos <= keyLen {
+            
+            let childIndex = _unitPool[SizeType(index)].child
+            if childIndex == 0 {
+                break
+            }
+            
+            let keyLabel = (keyPos < keyLen) ? key[keyPos] : 0
+            let unitLabel = UCharType(_unitPool[SizeType(childIndex)].label)
+            
+            if keyLabel < unitLabel {
+                return false
+            } else if(keyLabel > unitLabel) {
+                _unitPool[SizeType(childIndex)].hasSibling = true
+                fixUnits(index: childIndex)
+                break
+            }
+            
+            index = childIndex
+            keyPos += 1
+        }
+        
+        while keyPos <= keyLen {
+            let keyLabel = (keyPos < keyLen) ? key[keyPos] : 0
+            let childIndex = allocateUnit()
+            
+            if _unitPool[SizeType(index)].child == 0 {
+                _unitPool[SizeType(childIndex)].isState = true
+            }
+            
+            _unitPool[SizeType(childIndex)].sibling = _unitPool[SizeType(index)].child
+            _unitPool[SizeType(childIndex)].label = keyLabel
+            _unitPool[SizeType(index)].child = childIndex
+            _unfixedUnits.push(childIndex)
+            
+            index = childIndex
+            keyPos += 1
+        }
+        
+        _unitPool[SizeType(index)].value = value
+        return true
+    }
+
     func fixUnits(index: BaseType) {
         while _unfixedUnits.top! != index {
             let unfixedIndex = _unfixedUnits.pop()
             
-            if _numOfStates >= _hashTable.count - (_hashTable.count >> 2) {
+            if numOfStates >= _hashTable.count - (_hashTable.count >> 2) {
                 expandHashTable()
             }
             
@@ -50,10 +158,10 @@ class DawgBuilder {
             
             var (matchedIndex, hashId) = findUnit(unitIndex: unfixedIndex)
             if matchedIndex != 0 {
-                _numOfMergedTransitions += SizeType(numOfSiblings)
+                numOfMergedTransitions += SizeType(numOfSiblings)
                 
                 if _flagPool.get(index: SizeType(matchedIndex)) == false {
-                    _numOfMergingStates += 1
+                    numOfMergingStates += 1
                     _flagPool.set(index: SizeType(matchedIndex), bit: true)
                 }
             } else {
@@ -72,7 +180,7 @@ class DawgBuilder {
                 }
                 matchedIndex = transitionIndex + 1
                 _hashTable[SizeType(hashId)] = matchedIndex
-                _numOfStates += 1
+                numOfStates += 1
             }
             
             var current = unfixedIndex
@@ -182,7 +290,7 @@ class DawgBuilder {
         var i = index
         while i != 0 {
             let unit = _unitPool[SizeType(i)]
-            hashValue ^= hash(key: (unit.label << 24) ^ unit.base)
+            hashValue ^= hash(key: (BaseType(unit.label) << 24) ^ unit.base)
             i = unit.sibling
         }
         return hashValue
@@ -201,12 +309,14 @@ class DawgBuilder {
         return k
     }
     
+    @discardableResult
     func allocateTransition() -> BaseType {
         _flagPool.allocate()
         _basePool.allocate()
         return BaseType(_labelPool.allocate())
     }
     
+    @discardableResult
     func allocateUnit() -> BaseType {
         var index:SizeType
         if(_unusedUnits.empty) {
