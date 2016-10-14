@@ -1,0 +1,272 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B2E59261DB0F14200C419A0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E59251DB0F14200C419A0 /* main.swift */; };
+		5B2E592E1DB0F15C00C419A0 /* SwiftDawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2E592D1DB0F15C00C419A0 /* SwiftDawg.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5B2E59201DB0F14200C419A0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5B2E59221DB0F14200C419A0 /* SwiftDawgUtil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftDawgUtil; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B2E59251DB0F14200C419A0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5B2E592D1DB0F15C00C419A0 /* SwiftDawg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDawg.framework; path = "../../../Library/Developer/Xcode/DerivedData/SwitfDawg-dddkzaysmkdfgtacetoxbcfuvgkx/Build/Products/Debug-iphoneos/SwiftDawg.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B2E591F1DB0F14200C419A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2E592E1DB0F15C00C419A0 /* SwiftDawg.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B2E59191DB0F14200C419A0 = {
+			isa = PBXGroup;
+			children = (
+				5B2E59241DB0F14200C419A0 /* SwiftDawgUtil */,
+				5B2E59231DB0F14200C419A0 /* Products */,
+				5B2E592C1DB0F15C00C419A0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5B2E59231DB0F14200C419A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B2E59221DB0F14200C419A0 /* SwiftDawgUtil */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B2E59241DB0F14200C419A0 /* SwiftDawgUtil */ = {
+			isa = PBXGroup;
+			children = (
+				5B2E59251DB0F14200C419A0 /* main.swift */,
+			);
+			path = SwiftDawgUtil;
+			sourceTree = "<group>";
+		};
+		5B2E592C1DB0F15C00C419A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B2E592D1DB0F15C00C419A0 /* SwiftDawg.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B2E59211DB0F14200C419A0 /* SwiftDawgUtil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B2E59291DB0F14200C419A0 /* Build configuration list for PBXNativeTarget "SwiftDawgUtil" */;
+			buildPhases = (
+				5B2E591E1DB0F14200C419A0 /* Sources */,
+				5B2E591F1DB0F14200C419A0 /* Frameworks */,
+				5B2E59201DB0F14200C419A0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDawgUtil;
+			productName = SwiftDawgUtil;
+			productReference = 5B2E59221DB0F14200C419A0 /* SwiftDawgUtil */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B2E591A1DB0F14200C419A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Maksim Koltsov";
+				TargetAttributes = {
+					5B2E59211DB0F14200C419A0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 98NXLA2TVT;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5B2E591D1DB0F14200C419A0 /* Build configuration list for PBXProject "SwiftDawgUtil" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B2E59191DB0F14200C419A0;
+			productRefGroup = 5B2E59231DB0F14200C419A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B2E59211DB0F14200C419A0 /* SwiftDawgUtil */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B2E591E1DB0F14200C419A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2E59261DB0F14200C419A0 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5B2E59271DB0F14200C419A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B2E59281DB0F14200C419A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5B2E592A1DB0F14200C419A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 98NXLA2TVT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5B2E592B1DB0F14200C419A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 98NXLA2TVT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B2E591D1DB0F14200C419A0 /* Build configuration list for PBXProject "SwiftDawgUtil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2E59271DB0F14200C419A0 /* Debug */,
+				5B2E59281DB0F14200C419A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B2E59291DB0F14200C419A0 /* Build configuration list for PBXNativeTarget "SwiftDawgUtil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2E592A1DB0F14200C419A0 /* Debug */,
+				5B2E592B1DB0F14200C419A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B2E591A1DB0F14200C419A0 /* Project object */;
+}
