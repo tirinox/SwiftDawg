@@ -24,7 +24,7 @@ public class DawgDictionary {
         let offset = units[Int(index)].offset
         let nextIndex = index ^ offset ^ BaseType(label)
         let nextLabel = units[Int(nextIndex)].label
-        if nextLabel != label {
+        if nextLabel != BaseType(label) {
             return (false, 0)
         } else {
             return (true, nextIndex)
